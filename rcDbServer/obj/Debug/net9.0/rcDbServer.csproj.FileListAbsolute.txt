@@ -12,3 +12,4 @@
 /Users/chris/git/rcDbServer/rcDbServer/obj/Debug/net9.0/rcDbServer.pdb
 /Users/chris/git/rcDbServer/rcDbServer/obj/Debug/net9.0/rcDbServer.genruntimeconfig.cache
 /Users/chris/git/rcDbServer/rcDbServer/obj/Debug/net9.0/ref/rcDbServer.dll
+/Users/chris/git/rcDbServer/rcDbServer/obj/Debug/net9.0/rcDbServer.sourcelink.json

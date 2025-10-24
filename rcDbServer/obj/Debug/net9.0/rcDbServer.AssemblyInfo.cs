@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("rcDbServer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5594089a5778c751145772d969830237b5d48fbe")]
 [assembly: System.Reflection.AssemblyProductAttribute("rcDbServer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("rcDbServer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
