@@ -62,7 +62,7 @@ namespace rcDbServer
                 if (req.HttpMethod == "GET" && req.Url.AbsolutePath == "/get")
                 {
                     var queryString = req.QueryString;
-                    
+
                     if (queryString["key"] == null)
                     {
                         var respData = Encoding.UTF8.GetBytes(String.Format(errorResponse, "400 - Invalid Request. Please include key in query string."));
@@ -90,25 +90,28 @@ namespace rcDbServer
                             resp.ContentType = "text/html";
                             await resp.OutputStream.WriteAsync(respData, 0, respData.Length);
                         }
-                    } 
+                    }
                 }
+                //Set path - handle setting data in the DB
                 else if (req.HttpMethod == "GET" && req.Url.AbsolutePath == "/set")
                 {
                     var queryString = req.QueryString;
                     if (queryString.Count == 0)
                     {
-                            var respData = Encoding.UTF8.GetBytes(String.Format(errorResponse, "400 - No data included in query string."));
-                            resp.StatusCode = 400;
-                            resp.ContentLength64 = respData.LongLength;
-                            resp.ContentType = "text/html";
-                            await resp.OutputStream.WriteAsync(respData, 0, respData.Length);
+                        var respData = Encoding.UTF8.GetBytes(String.Format(errorResponse, "400 - No data included in query string."));
+                        resp.StatusCode = 400;
+                        resp.ContentLength64 = respData.LongLength;
+                        resp.ContentType = "text/html";
+                        await resp.OutputStream.WriteAsync(respData, 0, respData.Length);
                     }
                     else
                     {
                         string rows = "";
                         foreach (String key in queryString)
                         {
-                            if (key != null && queryString[key] != null)
+                            //If we don't have key=value, just ignore it
+                            //This was weird - when passing a URL like /set?test, the key was null instead of value. Check both to fix this.
+                            if (key != null && queryString[key] != null) 
                             {
                                 Console.WriteLine($"Key: {key} Value: {queryString[key]}");
                                 database[key] = queryString[key];
@@ -132,7 +135,7 @@ namespace rcDbServer
                             await resp.OutputStream.WriteAsync(respData, 0, respData.Length);
                         }
                     }
-                 }
+                }
                 else
                 {
                     var respData = Encoding.UTF8.GetBytes(String.Format(errorResponse, "400 - Invalid Request."));
