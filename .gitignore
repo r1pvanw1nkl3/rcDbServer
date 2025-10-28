@@ -2,4 +2,5 @@
 .vscode/
 rcDbServer/.DS_Store
 rcDbServer/bin/
-rcDbServer/obj
+rcDbServer/obj/
+.gitignore
