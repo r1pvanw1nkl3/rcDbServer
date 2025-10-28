@@ -6,10 +6,10 @@ using System.Text;
 namespace rcDbServer
 {    class rcDbServer
     {
-        public const string URL = "http://localhost:4000/";
-        public static HttpListener listener;
-        public static Dictionary<string, string> database = [];
-        public const string htmlResponse =
+        const string URL = "http://localhost:4000/";
+        static HttpListener listener;
+        static Dictionary<string, string> database = [];
+        const string htmlResponse =
             "<!DOCTYPE html>" +
             "<html>" +
             "    <style>" +
@@ -34,13 +34,13 @@ namespace rcDbServer
             "   </body>" +
             "</html>";
 
-        public const string tableRow =
+        const string tableRow =
         "<tr>" +
         "   <td>{0}</td>" +
         "   <td>{1}</td>" +
         "</tr>";
 
-        public const string errorResponse =
+        const string errorResponse =
             "<!DOCTYPE html>" +
             "<html>" +
             "    <title>Database Server</title>" +
@@ -49,7 +49,7 @@ namespace rcDbServer
             "   </body>" +
             "</html>";
 
-        public static async Task HandleRequests()
+        static async Task HandleRequests()
         {
             while (true)
             {
